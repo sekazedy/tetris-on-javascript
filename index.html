@@ -1,6 +1,11 @@
 <html>
 	<head>
 		<title>Tetris</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
 		<style>
 			body {
 				background: #202028;
@@ -12,13 +17,25 @@
 
 			canvas {
 				border: solid .2em #fff;
-				height: 90vh;
+				height: 80vh;
+			}
+
+			h1 {
+				margin: 0 0 10px 0;
+				background: linear-gradient(to right, #C40957, #0DC2FF, #0DFF72, #D31DD0, #FF8E0D, #F7CE00, #3877FF);
+			}
+
+			#score {
+				display: inline-block;
 			}
 		</style>
 	</head>
 	<body>
+		<h1>TETRIS</h1>
+		<div>
+			<canvas id="tetris" width="240" height="400"></canvas>
+		</div>
 		<div id="score"></div>
-		<canvas id="tetris" width="240" height="400"></canvas>
 		<script src="tetris.js"></script>
 	</body>
 </html>

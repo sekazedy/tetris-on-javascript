@@ -100,6 +100,7 @@ function createPiece(type) {
 }
 
 function draw() {
+	// arena background
 	context.fillStyle = '#000';
 	context.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -113,6 +114,12 @@ function drawMatrix(matrix, offset) {
 			if (value !== 0) {
 				context.fillStyle = colors[value];
 				context.fillRect(x + offset.x,
+								 y + offset.y,
+								 1, 1);
+
+				context.strokeStyle = "#000";
+				context.lineWidth = 0.05;
+				context.strokeRect(x + offset.x,
 								 y + offset.y,
 								 1, 1);
 			}
@@ -217,10 +224,10 @@ function updateScore() {
 
 const colors = [
 	null,
-	'#FF0D72',
+	'#C40957',
 	'#0DC2FF',
 	'#0DFF72',
-	'#F538FF',
+	'#D31DD0',
 	'#FF8E0D',
 	'#F7CE00',
 	'#3877FF'
@@ -245,6 +252,14 @@ document.addEventListener('keydown', event => {
 		playerRotate(left);
 	else if (event.keyCode === 87)
 		playerRotate(right);
+});
+
+// Prevent user from unintentional page refreshing
+window.addEventListener("beforeunload", function (event) {
+	var confirmationMessage = "You will lose any progress and score if You'll reload this page!";
+
+	event.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
+	return confirmationMessage;              // Gecko, WebKit, Chrome <34
 });
 
 playerReset();
